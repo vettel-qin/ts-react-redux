@@ -20,10 +20,12 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
+      "tslint --fix",
       "git add"
     ],
     "*.{css,less,scss,sass}": [
       "prettier --write",
+      "stylelint --fix",
       "git add"
     ],
     "*.{json,md}": [
