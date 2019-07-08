@@ -1,17 +1,35 @@
-import * as paths from "../paths.config";
+import * as paths from '../paths.config';
 
 const fileLoader = [
   {
-    test: /\.png$/i,
-    use: [
-      {
-        loader: 'url-loader',
-        // options: {
-        //   name: "assets/[hash:8].[ext]",
-        //   limit: 8192,
-        // },
-      },
-    ],
+    test: /\.(png|jpe?g|gif|eot|ttf|woff|woff2)$/,
+    loader: 'url-loader',
+    options: {
+      limit: 8192,
+      name: 'images/[name].[hash:8].[ext]',
+    },
+  },
+
+  {
+    test: /\.(eot|ttf|woff|woff2)$/,
+    loader: 'file-loader',
+    options: {
+      name: 'fonts/[hash].[ext]',
+    },
+  },
+
+  {
+    test: /\.(avi|mp3|mp4|mpg|ogg|wav|wmv)$/,
+    loader: 'file-loader',
+    options: {
+      name: 'media/[hash].[ext]',
+    },
+  },
+
+  {
+    test: /\.svg$/,
+    loader: '@svgr/webpack',
+    include: paths.SRC_DIR,
   },
 ];
 

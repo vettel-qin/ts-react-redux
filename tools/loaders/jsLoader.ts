@@ -1,4 +1,4 @@
-import * as paths from "../paths.config";
+import * as paths from '../paths.config';
 import tsImportPluginFactory from 'ts-import-plugin';
 
 const jsLoader = [
@@ -6,19 +6,18 @@ const jsLoader = [
     test: /\.ts(x?)$/,
     use: [
       {
-        loader: "cache-loader",
+        loader: 'cache-loader',
       },
-      // {
-      //   loader: "babel-loader",
-      //   options: {
-      //     babelrc: false,
-      //     plugins: [
-      //       'react-hot-loader/babel'
-      //     ]
-      //   }
-      // },
       {
-        loader: "ts-loader",
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          babelrc: false,
+          plugins: ['react-hot-loader/babel', '@babel/plugin-syntax-dynamic-import'],
+        },
+      },
+      {
+        loader: 'ts-loader',
         options: {
           transpileOnly: true,
           getCustomTransformers: () => ({
@@ -27,17 +26,17 @@ const jsLoader = [
                 libraryName: 'antd',
                 libraryDirectory: 'lib',
                 style: true,
-              })
-            ]
+              }),
+            ],
           }),
           compilerOptions: {
-            module: 'es2015'
-          }
+            module: 'es2015',
+          },
         },
       },
     ],
     include: paths.SRC_DIR,
-  }
+  },
 ];
 
 export default jsLoader;
