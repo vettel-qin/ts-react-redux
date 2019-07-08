@@ -1,0 +1,108 @@
+{
+  "name": "typescript-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Spencer",
+  "license": "MIT",
+  "scripts": {
+    "analyze": "yarn run build --report",
+    "build": "webpack --config tools/webpack.config.ts --mode production --progress --prod",
+    "lint:ts": "tslint \"{src, tools}/**/*.{ts,tsx}\"",
+    "lint:css": "stylelint \"{src,tools}/**/*.{css,less,scss,sass}\"",
+    "lint": "yarn lint:ts && yarn lint:css",
+    "start": "webpack-dev-server --config tools/webpack.config.ts --mode development --progress --hot --dev"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx,ts,tsx}": [
+        "tslint \"{src, tools}/**/*.{js,jsx,ts,tsx}\"",
+        "prettier --write",
+        "git add"
+      ],
+      "*.{css,less,scss,sass}": [
+        "stylelint \"{src,tools}/**/*.{css,less,scss,sass}\"",
+        "prettier --write",
+        "git add"
+      ],
+      "*.{json,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "package.json"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/webpack": "^4.3.0",
+    "@types/clean-webpack-plugin": "^0.1.3",
+    "@types/html-webpack-plugin": "^3.2.0",
+    "@types/mini-css-extract-plugin": "^0.2.1",
+    "@types/optimize-css-assets-webpack-plugin": "^1.3.4",
+    "@types/react": "^16.8.14",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-hot-loader": "^4.1.0",
+    "@types/react-loadable": "^5.5.1",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/uglifyjs-webpack-plugin": "^1.1.0",
+    "@types/webpack": "^4.4.27",
+    "@types/webpack-bundle-analyzer": "^2.13.1",
+    "autoprefixer": "^9.6.0",
+    "babel-loader": "^8.0.6",
+    "cache-loader": "^3.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^1.0.1",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "react-hot-loader": "^4.11.1",
+    "react-loadable": "^5.5.0",
+    "redux-thunk": "^2.3.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.0",
+    "stylelint-scss": "^3.9.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "svg-url-loader": "^2.3.3",
+    "ts-import-plugin": "^1.5.5",
+    "ts-loader": "^5.4.4",
+    "ts-node": "^8.1.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^5.18.0",
+    "tslint-react": "^4.0.0",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "uglifyjs-webpack-plugin": "^2.1.3",
+    "url-loader": "^2.0.1",
+    "webpack": "^4.30.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
+    "@types/react-redux": "^7.1.0",
+    "antd": "^3.19.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.1"
+  }
+}

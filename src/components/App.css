@@ -1,0 +1,81 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  text-size-adjust: 100% !important;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, STHeiTi, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+* {
+  -webkit-tap-highlight-color: rbga(0, 0, 0, 0); /* 禁止可点元素的黑色块 */
+}
+
+a,
+img {
+  -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+}
+
+input {
+  box-shadow: none;
+}
+
+:global(.flex-1) {
+  flex: 1;
+}
+
+:global(.flex-2) {
+  flex: 2;
+}
+
+:global(.flex-3) {
+  flex: 3;
+}
+
+:global(.flex-4) {
+  flex: 4;
+}
+
+:global(.clearfix::before),
+:global(.clearfix::after) {
+  display: table;
+  content: ' ';
+}
+
+:global(.clearfix::after) {
+  clear: both;
+}
+
+:global(#react-root) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+}
+
+@media screen and (min-width: 751px) {
+  :global(#react-root) {
+    width: 750px;
+    margin: 0 auto;
+  }
+}

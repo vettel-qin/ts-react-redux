@@ -1,0 +1,8 @@
+@import 'variables.scss';
+
+.root {
+  color: red;
+  font-size: 20px;
+
+  @include ellipsis;
+}

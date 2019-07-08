@@ -1,0 +1,26 @@
+{
+  "extends": ["tslint:recommended", "tslint-react"],
+
+  "rules": {
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "curly": [true, "ignore-same-line"], //for if do while 要有花括号，ignore-same-line对单行实行进行例外处理 正确：if(x>0) doStuff(); 把doStuff()换行失败。
+    "interface-name": false, //要求接口名称以大写”I“开头
+    "no-console": [true, "log"], //禁止使用指定的console方法，要禁止的方法名称列表。如果未提供方法名称，则禁止所有控制台方法。
+    "no-empty": false, //不允许空的块
+    "no-empty-interface": false, //禁止空接口 {}
+    "no-paremeter-reassignment": true, // 不允许重新分配参数
+    "jsx-no-multiline-js": false,
+    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-sort-keys": false, //检查对象中键的排序
+    "ordered-imports": false, // 要求将import语句按字母排序排列并进行分组
+    "prefer-template": true,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double",
+      "avoid-escape",
+      "avoid-template"
+    ], // 引号的使用规则, single强制执行单, jsx-double对JSX属性强制使用双引号, avoid-escape允许在通常需要转义的情况下使用”其他“引号, avoid-template禁止不包含字符串插值的单行未标记模板字符串。
+    "semicolon": [true, "always", "strict-bound-class-methods"] //分号的使用规则
+  }
+}
