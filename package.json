@@ -18,24 +18,9 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.{js,jsx,ts,tsx}": [
-        "tslint \"{src, tools}/**/*.{js,jsx,ts,tsx}\"",
-        "prettier --write",
-        "git add"
-      ],
-      "*.{css,less,scss,sass}": [
-        "stylelint \"{src,tools}/**/*.{css,less,scss,sass}\"",
-        "prettier --write",
-        "git add"
-      ],
-      "*.{json,md}": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "package.json"
+    "src/**/*.{css,less,scss,sass}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "devDependencies": {
@@ -63,12 +48,15 @@
     "css-loader": "^1.0.1",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "lint-staged": "^9.1.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.18.2",
     "react-hot-loader": "^4.11.1",
     "react-loadable": "^5.5.0",
     "redux-thunk": "^2.3.0",

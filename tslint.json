@@ -8,7 +8,6 @@
     "no-console": [true, "log"], //禁止使用指定的console方法，要禁止的方法名称列表。如果未提供方法名称，则禁止所有控制台方法。
     "no-empty": false, //不允许空的块
     "no-empty-interface": false, //禁止空接口 {}
-    "no-paremeter-reassignment": true, // 不允许重新分配参数
     "jsx-no-multiline-js": false,
     "object-literal-key-quotes": [true, "as-needed"],
     "object-literal-sort-keys": false, //检查对象中键的排序

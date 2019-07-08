@@ -8,22 +8,22 @@ export interface IDefaultState {
 
 const defaultState: IDefaultState = {
   inputValue: '',
-  list: []
-}
+  list: [],
+};
 
 // 处理并返回state
 
 export default function(state = defaultState, action: TodoAction) {
   switch (action.type) {
     case CHANGE_VALUE:
-      return {...state, inputValue: action.value};
+      return { ...state, inputValue: action.value };
     case ADD_ITEM:
       return { ...state, list: [...state.list, state.inputValue], inputValue: '' };
     case DELETE_ITEM:
-      let newState = { ...state };
+      const newState = { ...state };
       newState.list.splice(action.index, 1);
-      console.log(newState);
       return newState;
-    default: return state;
+    default:
+      return state;
   }
 }

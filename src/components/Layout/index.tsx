@@ -3,15 +3,17 @@ import { Checkbox, Button } from 'antd';
 import { ComponentExt } from '~/utils/reactExt';
 
 class Layout extends ComponentExt {
-  handleMsg = () => {
+  public handleMsg = () => {
     this.$message.success('提交成功！');
   };
 
-  render() {
+  public render() {
     return (
       <section>
         <Checkbox>Checkbox</Checkbox>
-        <Button onClick={this.handleMsg} type="primary">提交</Button>
+        <Button onClick={this.handleMsg} type="primary">
+          提交
+        </Button>
       </section>
     );
   }

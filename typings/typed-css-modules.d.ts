@@ -1,4 +1,4 @@
 declare module '*.scss' {
-  const content: any
-  export = content
+  const content: any;
+  export = content;
 }

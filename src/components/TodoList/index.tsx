@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import TodoItem from '~/components/TodoItem';
 
-//创建类型接口
+// 创建类型接口
 interface IProps {
   todos: any[];
-  handleDeleteItem: (index: number) => void;
+  deleteItem: (num: number) => void;
 }
 
-const TodoList = ({ todos, handleDeleteItem }: IProps) => (
-  <ul>
-    {
-      todos.map((item, index) => (
-        <TodoItem item={item} deleteItem={() => handleDeleteItem(index)} key={index} />
-      ))
-    }
-  </ul>
-)
+class TodoList extends PureComponent<IProps> {
+  public render() {
+    const { todos } = this.props;
+
+    return (
+      <ul>
+        {todos.map((item, index) => (
+          <TodoItem item={item} deleteItem={this.handleItemDelete(index)} key={index} />
+        ))}
+      </ul>
+    );
+  }
+  private handleItemDelete = (num: number) => () => {
+    const { deleteItem } = this.props;
+    deleteItem(num);
+  };
+}
 
 export default TodoList;

@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react';
 
-export interface ITestProps {} 
+export interface ITestProps {}
 
 class Test extends PureComponent<ITestProps> {
-  render() {
-    return (
-      <div>test</div>
-    )
+  public render() {
+    return <div>test</div>;
   }
 }
 

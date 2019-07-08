@@ -14,9 +14,6 @@ import grm from '../../assets/grm.png';
 export interface IHomeProps {
   inputValue: string;
   list: any[];
-  // handleChangeValue: (e: any) => void;
-  // handleSubmit: () => void;
-  // handleDeleteItem: (index: number) => void;
   changeValue: (e: any) => void;
   addItem: () => void;
   deleteItem: (index: number) => void;
@@ -26,51 +23,44 @@ export interface IHomeProps {
 class Home extends PureComponent<IHomeProps> {
   public handleChangeValue = (e: any) => {
     this.props.changeValue(e.target.value);
-  }
+  };
 
   public handleSubmit = () => {
     this.props.addItem();
-  }
+  };
 
   public handleDeleteItem = (index: number) => {
     this.props.deleteItem(index);
-  }
+  };
 
-  render() {
-    const {inputValue, list} = this.props;
-    
+  public render() {
+    const { inputValue, list } = this.props;
+
     return (
       <section className={s.root}>
         <Layout />
-        <AddTodo
-          inputValue={inputValue}
-          onChange={(e: any) => { this.handleChangeValue(e)}}
-          submit={this.handleSubmit}
-        />
-        <TodoList
-          todos={list}
-          handleDeleteItem={this.handleDeleteItem}
-        />
+        <AddTodo inputValue={inputValue} onChange={this.handleChangeValue} submit={this.handleSubmit} />
+        <TodoList todos={list} deleteItem={this.handleDeleteItem} />
         <img src={grm} />
         <Money fill="red" />
         <div>
           <Link to="/test">Test pagesdfsdrfewr</Link>
         </div>
       </section>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state: any) => ({
   inputValue: state.todoList.inputValue,
   list: [...state.todoList.list],
-})
+});
 
 const mapDispatchToProps = {
   changeValue,
   addItem,
   deleteItem,
-}
+};
 
 // const mapDispatchToProps = (dispatch: Dispatch) => ({
 //   handleChangeValue(e: any) {
@@ -84,4 +74,7 @@ const mapDispatchToProps = {
 //   }
 // })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home);

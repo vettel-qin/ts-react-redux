@@ -8,33 +8,34 @@ import App from '~/components/App';
 import store from '~/store';
 
 function Loading() {
-  return <div>Loading...</div>
+  return <div>Loading...</div>;
 }
 
 const Home = Loadable({
   loader: () => import(/* webpackChunkName: "home" */ '~/container/home'),
-  loading: Loading
-})
+  loading: Loading,
+});
 
 const Test = Loadable({
   loader: () => import(/* webpackChunkName: "test" */ '~/container/test'),
-  loading: Loading
-})
+  loading: Loading,
+});
 
 const render = () => {
   ReactDOM.render(
+    // tslint:disable-next-line:jsx-wrap-multiline
     <Provider store={store}>
       <App>
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact={true} path="/" component={Home} />
             <Route path="/test" component={Test} />
           </Switch>
         </Router>
       </App>
     </Provider>,
-    document.querySelector('#react-root')
-  )
+    document.querySelector('#react-root'),
+  );
 };
 
 bootstrap().then(render);

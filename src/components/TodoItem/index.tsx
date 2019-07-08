@@ -6,10 +6,6 @@ interface IProps {
   deleteItem: () => void;
 }
 
-const TodoItem = ({item, deleteItem}: IProps) => (
-  <li onClick={deleteItem}>
-    {item}
-  </li>
-)
+const TodoItem = ({ item, deleteItem }: IProps) => <li onClick={deleteItem}>{item}</li>;
 
 export default TodoItem;
