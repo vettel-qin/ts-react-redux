@@ -2,7 +2,7 @@
   "name": "typescript-react",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Spencer",
+  "author": "vettel-qin",
   "license": "MIT",
   "scripts": {
     "analyze": "yarn run build --report",
