@@ -9,6 +9,7 @@ import { changeValue, addItem, deleteItem } from '~/actions';
 import s from './home.scss';
 import Money from '~/assets/money.svg';
 import grm from '../../assets/grm.png';
+import { getProvinceList, login } from 'api';
 
 // 创建类型接口
 export interface IHomeProps {
@@ -21,6 +22,14 @@ export interface IHomeProps {
 
 // 使用类型接口代替PropTypes进行类型校验
 class Home extends PureComponent<IHomeProps> {
+  public componentDidMount() {
+    getProvinceList({
+      provinceId: 10,
+    })
+      .then(res => {})
+      .catch(err => {});
+  }
+
   public handleChangeValue = (e: any) => {
     this.props.changeValue(e.target.value);
   };

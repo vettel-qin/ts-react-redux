@@ -5,9 +5,11 @@ import jsLoader from './loaders/jsLoader';
 import styleLoader from './loaders/styleLoader';
 import fileLoader from './loaders/fileLoader';
 import optimization from './optimization';
+import analyze from './analyze';
 import * as paths from './paths.config';
 
 const isDev = process.argv.includes('--dev');
+const isAnalyze = process.argv.includes('--analyze');
 
 module.exports = {
   entry: {
@@ -37,6 +39,25 @@ module.exports = {
     rules: [...jsLoader, ...styleLoader, ...fileLoader],
   },
 
-  plugins: [...plugins],
+  plugins: isAnalyze ? [...plugins, ...analyze] : [...plugins],
   optimization,
+
+  devServer: {
+    port: 8088,
+    host: 'localhost',
+    publicPath: '/',
+    contentBase: './src',
+    historyApiFallback: true,
+    open: false,
+    proxy: {
+      '/wechatBH': {
+        target: 'http://wx-test.by-health.com/',
+        changeOrigin: true,
+      },
+      '/scrm': {
+        target: 'http://wx-test1.by-health.com/',
+        changeOrigin: true,
+      },
+    },
+  },
 };
