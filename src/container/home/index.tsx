@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Layout from '~/components/Layout';
@@ -21,7 +21,7 @@ export interface IHomeProps {
 }
 
 // 使用类型接口代替PropTypes进行类型校验
-class Home extends PureComponent<IHomeProps> {
+class Home extends Component<IHomeProps> {
   public componentDidMount() {
     getProvinceList({
       provinceId: 10,
@@ -70,18 +70,6 @@ const mapDispatchToProps = {
   addItem,
   deleteItem,
 };
-
-// const mapDispatchToProps = (dispatch: Dispatch) => ({
-//   handleChangeValue(e: any) {
-//     dispatch(changeValue(e.target.value));
-//   },
-//   handleSubmit() {
-//     dispatch(addItem())
-//   },
-//   handleDeleteItem(index: number) {
-//     dispatch(deleteItem(index))
-//   }
-// })
 
 export default connect(
   mapStateToProps,

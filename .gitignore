@@ -6,3 +6,5 @@
 # Compiled output
 /build
 /dist
+
+yarn-error.log

@@ -13,7 +13,7 @@ const jsLoader = [
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
           babelrc: false,
-          plugins: ['react-hot-loader/babel', '@babel/plugin-syntax-dynamic-import'],
+          plugins: ['@babel/plugin-syntax-dynamic-import'],
         },
       },
       {

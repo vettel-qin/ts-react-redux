@@ -15,8 +15,8 @@ const optimization = {
         test: /[\\/]node_modules[\\/]/,
         name: 'vendor',
         chunks: 'all',
-      }
-    }
+      },
+    },
   },
 
   minimizer: [
@@ -27,9 +27,9 @@ const optimization = {
       parallel: true,
       sourceMap: true,
     }),
-    
+
     new OptimizeCssAssetsPlugin(),
-  ]
-}
+  ],
+};
 
 export default optimization;

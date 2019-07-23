@@ -1,10 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
-export interface ITestProps {}
+interface IProps {}
 
-class Test extends PureComponent<ITestProps> {
+interface IState {}
+class Test extends Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = {};
+  }
+
   public render() {
-    return <div>test</div>;
+    return <section>test</section>;
   }
 }
 

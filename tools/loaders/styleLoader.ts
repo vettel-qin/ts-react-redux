@@ -6,22 +6,32 @@ const isDev = process.argv.includes('--dev');
 const styleLoader = [
   {
     test: /\.(css|scss)$/i,
-    include: paths.SRC_DIR,
-    use: [
-      isDev
-        ? 'style-loader'
-        : {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../',
+    rules: [
+      {
+        loader: isDev
+          ? 'style-loader'
+          : {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '../',
+              },
             },
-          },
+      },
 
       {
         loader: 'cache-loader',
       },
 
       {
+        exclude: paths.SRC_DIR,
+        loader: 'css-loader',
+        options: {
+          sourceMap: isDev ? true : false,
+        },
+      },
+
+      {
+        include: paths.SRC_DIR,
         loader: 'css-loader',
         options: {
           sourceMap: isDev ? true : false, // 启用/禁用 Sourcemap

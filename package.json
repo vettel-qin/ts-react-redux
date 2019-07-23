@@ -52,6 +52,7 @@
     "@types/uglifyjs-webpack-plugin": "^1.1.0",
     "@types/webpack": "^4.4.27",
     "@types/webpack-bundle-analyzer": "^2.13.1",
+    "@types/webpack-dev-server": "^3.1.7",
     "autoprefixer": "^9.6.0",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
@@ -98,7 +99,6 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
-    "@hot-loader/react-dom": "^16.8.6",
     "@types/react-redux": "^7.1.0",
     "antd": "^3.19.3",
     "react": "^16.8.6",

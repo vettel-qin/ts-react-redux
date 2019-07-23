@@ -1,7 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// tslint:disable-next-line:no-var-requires
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 import DotenvWebpack from 'dotenv-webpack';
 
 const isDev = process.argv.includes('--dev');
