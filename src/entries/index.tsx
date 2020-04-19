@@ -1,41 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import Loadable from 'react-loadable';
-import bootstrap from '~/core/bootstrap';
+import { Provider } from 'react-redux';
 import App from '~/components/App';
+import Home from '~/container/home';
+import Result from '~/container/result';
 import store from '~/store';
+import s from './index.scss';
+import logo from '~/assets/logo.png';
 
-function Loading() {
-  return <div>Loading...</div>;
-}
 
-const Home = Loadable({
-  loader: () => import(/* webpackChunkName: "home" */ '~/container/home'),
-  loading: Loading,
-});
-
-const Test = Loadable({
-  loader: () => import(/* webpackChunkName: "test" */ '~/container/test'),
-  loading: Loading,
-});
-
-const render = () => {
-  ReactDOM.render(
-    // tslint:disable-next-line:jsx-wrap-multiline
+function render() {
+  return ReactDOM.render(
     <Provider store={store}>
       <App>
+        <section className={s.wrapper}>
+          <p>Hello, react + redux</p>
+          <img src={logo} alt="logo" className={s.logo} />
+        </section>
         <Router>
           <Switch>
             <Route exact={true} path="/" component={Home} />
-            <Route path="/test" component={Test} />
+            <Route path="/result" component={Result} />
           </Switch>
         </Router>
       </App>
     </Provider>,
-    document.querySelector('#react-root'),
+    document.getElementById('react-root')
   );
-};
+}
 
-bootstrap().then(render);
+render();
+
+if (module.hot) {
+  module.hot.accept(['~/components/App'], render);
+  module.hot.accept(() => window.location.reload(true));
+}

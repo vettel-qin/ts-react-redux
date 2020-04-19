@@ -1,4 +1,4 @@
-import { CHANGE_VALUE, ADD_ITEM, DELETE_ITEM } from '../constants';
+import { CHANGE_VALUE, ADD_ITEM, DELETE_ITEM } from '~/constants';
 
 export interface IChangeValueAction {
   value: any;
@@ -33,3 +33,5 @@ export const deleteItem = (index: number) => ({
   index,
   type: DELETE_ITEM,
 });
+
+

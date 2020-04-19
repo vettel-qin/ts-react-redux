@@ -16,8 +16,7 @@ module.exports = {
     "at-rule-no-unknown": [
       true,
       {
-        ignoreAtRules: [
-          "at-root",
+        ignoreAtRules: [ "at-root",
           "content",
           "extend",
           "include",
@@ -39,17 +38,13 @@ module.exports = {
     // 不允许未知属性
     "property-no-unknown": [
       true,
-      {
-        ignoreProperties: ["composes"],
-      },
+      { ignoreProperties: ["composes"] },
     ],
 
     // 不允许未知的伪类选择器
     "selector-pseudo-class-no-unknown": [
       true,
-      {
-        ignorePseudoClasses: ["global", "local"],
-      },
+      { ignorePseudoClasses: ["global", "local"] },
     ],
   },
 };

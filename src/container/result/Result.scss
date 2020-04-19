@@ -1,0 +1,12 @@
+.root {
+  width: 100%;
+  height: 5rem;
+  // background: url('../../assets/grm.png');
+  background-repeat: no-repeat;
+  transform: translate(0, 0);
+  color: #333;
+}
+
+@mixin center {
+  text-align: center;
+}

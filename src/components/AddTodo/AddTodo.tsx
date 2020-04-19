@@ -15,3 +15,4 @@ const AddTodo = ({ onChange, inputValue, submit }: IProps) => (
 );
 
 export default AddTodo;
+
