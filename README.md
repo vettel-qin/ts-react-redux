@@ -1,33 +1,35 @@
-一、项目初始化
-1、全局安装 typescript，默认已经安装 node 以及 npm
-npm install -g typescript
+### 工具版本
 
-2、新建文件夹 ts-react-redux 并进入
+- node 版本 `v10.16.0`
+- npm 版本 `v6.12.0`
 
-3、进行初始化，生成 package.json 和 tsconfig.json
-yarn init -y && tsc --init
+### 开发命令
 
-4、安装开发工具
-webpack 原本的包不包含验证包，所以需要安装相关 ts 验证包
-yarn add webpack @types/webpack webpack-cli webpack-dev-server -D
+1. 运行 `npm install` 安装依赖包
+2. 运行 `npm run start` 启动 dev 服务器
+3. 运行 `npm run build` 编译发布包
 
-5、安装 react 相关
-react 原本的包不包含验证包，所以需要安装相关 ts 验证包
-yarn add react react-dom -S
-yarn add @types/react @types/react-dom -D
 
-6、安装 ts-loader 或者 awesome-typescript-loader
-这两款 loader 用于将 ts 代码编译成 js 代码，本文档使用 ts-loader
-yarn add ts-loader -D 或 yarn add awesome-typescript-loader -D
+## 相关文章目录
 
-二、项目启动
-1、webpack 配置
-(1)、在项目根目录下新建 tools 文件夹并进入新建 webpack.config.ts
+本文代码地址：[ts-react-redux](https://github.com/vettel-qin/ts-react-redux)
 
-(2)、在项目根目录下新建 src 文件夹，然后在 src 里新建 entries 文件夹并进入新建 index.tsx 文件
-作为项目入口
+```
+本文详细介绍了如何从零开始搭建一个 Typescript + React 开发的脚手架，包含如何添加 Redux 以及 React Router 的环境。
 
-(3)、编写简单的 webpack 配置，只包含 entry 和 output：
-​​![0]()
+建议将代码拉下来之后，配合本文一起查看，效果更佳。
 
-(4)、编写 ts-loader 配置项
+代码下载命令：git clone https://github.com/vettel-qin/ts-react-redux.git
+
+从零开始，一步一步搭建Typescript + React + Redux项目——创建项目结构（一）
+
+从零开始，一步一步搭建Typescript + React + Redux项目——开发环境配置（二）
+
+从零开始，一步一步搭建 Typescript + React + Redux项目——集成React（三）
+
+从零开始，一步一步搭建 Typescript + React + Redux项目——集成Redux（四）
+
+从零开始，一步一步搭建 Typescript + React + Redux项目——项目打包（五）
+
+从零开始，一步一步搭建 Typescript + React + Redux项目——团队合作规范（六）
+```
